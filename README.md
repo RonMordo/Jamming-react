@@ -48,29 +48,9 @@ Jammming is a React-based web app that lets users search for songs on Spotify, c
 3. Set the Redirect URI to `http://localhost:3000/`.
 4. Add the Client ID to your `.env` file.
 
-## Testing
-
-- Use React Developer Tools for inspecting components.
-- Add console logs and breakpoints for debugging.
-- Manually test by creating playlists, adding/removing tracks, and saving them.
-
 ## Project Structure
 
 - `SpotifyAuth.js` handles authentication and API requests.
 - `SearchBar.jsx` manages user input and search requests.
 - `Playlist.jsx` manages playlist creation and saving.
 - `Tracklist.jsx` and `Track.jsx` render track details and actions.
-
-## Future Enhancements
-
-- Add backend for user data storage.
-- Display user profiles.
-- Improve UI with better animations and transitions.
-
-## Contributing
-
-Pull requests are welcome. For major changes, open an issue first to discuss your ideas.
-
-## License
-
-This project is licensed under the MIT License.
