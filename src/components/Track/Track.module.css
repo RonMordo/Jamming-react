@@ -1,0 +1,34 @@
+.trackContainer {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid rgb(163, 162, 162);
+}
+
+.trackName {
+  font-weight: bold;
+  color: white;
+}
+
+.artist {
+  color: rgb(94, 90, 90);
+  font-weight: 500;
+}
+
+.info {
+  display: flex;
+  gap: 3px;
+}
+
+.album {
+  color: rgb(94, 90, 90);
+  font-weight: 500;
+}
+
+.addButton {
+  align-self: center;
+}
+
+.addButton button {
+  background-color: transparent;
+  color: azure;
+}

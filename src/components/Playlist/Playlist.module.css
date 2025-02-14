@@ -1,0 +1,19 @@
+.buttonContainer {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.playlistName {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.playlistName:focus {
+  outline: none;
+}
