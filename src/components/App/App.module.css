@@ -9,6 +9,28 @@
   padding: 20px;
 }
 
+.profileContainer {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+  color: white;
+}
+
+.profileImg img {
+  border-radius: 50%;
+  width: 10rem;
+}
+
+.profileContainer ul {
+  list-style-type: none;
+  font-weight: 600;
+  padding: 0;
+}
+
+.profileContainer a {
+  color: white;
+}
+
 .heading {
   color: white;
 }

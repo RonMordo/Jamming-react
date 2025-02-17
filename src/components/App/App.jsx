@@ -10,6 +10,7 @@ function App() {
 
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [profile, setProfile] = useState(null);
 
   const addTrackHandler = (track) => {
     setPlaylistTracks((prevPlaylist) => {
@@ -44,10 +45,22 @@ function App() {
   };
 
   useEffect(() => {
-    const token = SpotifyAuth.getAccessToken();
-    if (token) {
-      console.log("Token obtained:", token);
-    }
+    const fetchProfile = async () => {
+      const token = SpotifyAuth.getAccessToken();
+      if (token) {
+        console.log("Token obtained:", token);
+        try {
+          const profileData = await SpotifyAuth.fetchProfile(token);
+          if (profileData) {
+            console.log(profileData);
+          }
+          setProfile(profileData);
+        } catch (error) {
+          console.log("Failed to load profile:", error);
+        }
+      }
+    };
+    fetchProfile();
   }, []);
 
   const searchTracks = async (term) => {
@@ -67,6 +80,32 @@ function App() {
     <div className={styles.appContainer}>
       <h1 className={styles.heading}>Jamming</h1>
       <SearchBar searchTracks={searchTracks} />
+      {profile && (
+        <div className={styles.profileContainer}>
+          <h2>
+            Logged in as{" "}
+            <span className={styles.displayName}>{profile.display_name}</span>
+          </h2>
+          <div className={styles.profileImg}>
+            <img src={profile.images?.[0]?.url} alt="Profile picture" />
+          </div>
+          <ul>
+            <li>
+              User ID: <span className={styles.id}>{profile.id}</span>
+            </li>
+            <li>
+              <a className={styles.uri} href={profile.external_urls.spotify}>
+                Spotify URI
+              </a>
+            </li>
+            <li>
+              <a className={styles.imgUrl} href={profile.images?.[0]?.url}>
+                Profile Image
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
       <div className={styles.interface}>
         <div className={styles.searchResults}>
           <h2>Results</h2>

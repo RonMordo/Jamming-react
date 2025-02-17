@@ -34,6 +34,13 @@ const SpotifyAuth = {
       window.location = accessUrl;
     }
   },
+  async fetchProfile(token) {
+    const result = await fetch("https://api.spotify.com/v1/me", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return await result.json();
+  },
   async searchSpotify(term) {
     const accessToken = this.getAccessToken();
     const endpoint = `https://api.spotify.com/v1/search?type=track&q=${encodeURIComponent(
