@@ -1,5 +1,5 @@
 const clientId = "a37b544a988045b797fa3f5374a1e835";
-const redirectUri = "http://localhost:5173";
+const redirectUri = "https://genuine-horse-2888f6.netlify.app/";
 
 let accessToken;
 
